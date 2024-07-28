@@ -1,0 +1,9 @@
+spot	sample	rep	xist_0	xist_1	xist_2	xist_pos	XX_perc	XO_perc
+TFi_R1	TFi	R1	39	50	11	61	98	2
+TFi_R2	TFi	R2	37	49	14	63	97	3
+2i_R1	2i	R1	100	0	0	0	93	7
+2i_R2	2i	R2	100	0	0	0	94	6
+sgXist_R1	sgXist	R1	98	2	0	2	96	4
+sgXist_R2	sgXist	R2	100	0	0	0	99	1
+sgNT_R1	sgNT	R1	48	46	6	52	89	11
+sgNT_R2	sgNT	R2	39	49	12	61	97	3

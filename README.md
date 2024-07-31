@@ -13,7 +13,7 @@ Fig1_TFi_screens: Contains instructions, code and files to reproduce library des
 
 Fig2_Oct4_knockdown: Contains instructions, code and files to reproduce analysis of Oct4 knockdown experiments. Plots Fig. 2 and Extended Fig. E5. (Code by Till Schwämmle)
 
-Fig3_RNAseq_timecourse: Contains instructions, code and files to reproduce analysis of RNA-seq time course experiments. Plots Fig. 3 and Extended Fig. E6. (Code by Till Schwämmle)
+Fig3_RNAseq_timecourse: Contains instructions, code and files to reproduce analysis of RNA-seq time course experiments. Plots Fig. 3 and Extended Fig. E6. (Code by Till Schwämmle and Aybuge Altay)
 
 Fig4_Reporter_screens: Contains instructions, code and files to reproduce analysis of Reporter CRISPR screen experiments. Plots Fig. 4 and Extended Fig. E7-9. (Code by Till Schwämmle)
 

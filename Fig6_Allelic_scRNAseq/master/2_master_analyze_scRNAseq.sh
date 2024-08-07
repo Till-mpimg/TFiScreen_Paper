@@ -14,8 +14,8 @@ echo -e "Rscript ${script_dir}Fig6fghE11fghi_wt_xist_bins.R $wd"
 Rscript ${script_dir}Fig6fghE11fghi_wt_xist_bins.R $wd
 
 #Compares XCI between deletion and wildtype cells. Plots Fig. 6e and Extended Fig. E11e
-echo -e "${script_dir}create_count_tables.sh $wd"
-${script_dir}create_count_tables.sh $wd
+echo -e "Rscript ${script_dir}Fig6eE11e_comp_DEL.R $wd"
+Rscript ${script_dir}Fig6eE11e_comp_DEL.R $wd
 
 
 

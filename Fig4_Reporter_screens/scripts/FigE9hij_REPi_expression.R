@@ -4,8 +4,11 @@ library(egg)
 library(gridExtra)
 library(pheatmap)
 
-#Specify working dir
-wd <- "/project/ag_schulz/Till/TFi_Paper/"
+
+#Specify working directory
+args <- commandArgs(trailingOnly = TRUE)
+wd <-  args[1]
+
 
 setwd(wd)
 

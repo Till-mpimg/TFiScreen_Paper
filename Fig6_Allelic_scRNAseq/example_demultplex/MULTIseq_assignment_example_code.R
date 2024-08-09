@@ -12,111 +12,6 @@
 # This code exemplifies how the files were split and how initial quality filtering was performed
 # Split lists of the final barcodes per sample are provided in "./Fig6_Allelic_scRNAseq/input_files" and used for the master scripts. 
 
-##+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
-## Manual outline ####
-##+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
-
-# 1. Setup
-# Define paths
-# Load libraries
-# Define ggplot theme
-
-# 2. Load, normalize, QC, filter
-# Start loop to process each of the sc datasets (e.g. JJF002, JJF003, JJF004)
-#     Load count matrix, reformat sce (SingleCellExperiment object) slightly
-#     Process MULTI-seq fastqs with deMULTIplex2
-#     Add MULTI-seq annotations to cells
-#     Normalize by library size (currently simple size factors from library size)
-#     log2 transform
-#     Feature selection (currently top 10% highly variable genes)
-#     PCA, Louvain clustering, UMAP
-#     Add QC metrics (mito, etc.)
-#
-#     "sce_overview_plots" function:
-#     - number of cells per sample. 
-#     - text summarizing some metrics (e.g. cells filtered by QC, median UMIs per cell, etc.)
-#     - PCA plots (e.g. by cluster label, by sample name)
-#     - UMAP plots (e.g. by cluster label, by sample name)
-#     - violin plots (e.g. UMI counts, detected genes, mito%)
-#
-#     unfiltered sce: 
-#         - Output: pdf from sce_overview_plots
-#         - Output: export sce object as RDS file
-# 
-#     QC filtered sce (e.g. mito):
-#         Normalization and transformation again (because size factor normalization can be affected by low-quality cells)
-#         Feature selection again
-#         PCA, Louvain clustering, UMAP again
-#         - Output: pdf from sce_overview_plots
-#         - Output: export sce object as RDS file
-#
-#     Singlet filtered sce:
-#         Opt. Filter for titration samples only (remove Tills samples)
-#         Normalization and transformation again (because size factor normalization can be affected by low-quality cells)
-#         Feature selection again
-#         PCA, Louvain clustering, UMAP again
-#         - Output: pdf from sce_overview_plots
-#         - Output: export sce object as RDS file
-#         - Output: export list of cell barcodes as csv
-#         - Output: export the cell barcodes with MULTI-barcode annotation (e.g. sample assignment)
-#
-#     => Output of the loop, for each dataset: 
-#     - 3 sce objects (unfiltered, after QC filter, after singlet filter)
-#     - 3 pdf files with overview plots (unfiltered, after QC filter, after singlet filter)
-#     - table with cell barcodes (csv)
-#     - table with cell barcodes and MULTI-seq annotations (csv)
-
-# 3. DGE
-# Read and combine sce files from each dataset (JJF002, JJF003, JJF004)
-# Aggregate gene counts by treatment
-# Convert to data.frame, wrangle slightly
-# Run DESeq
-# List of genes to highlight, using several filters (e.g. all genes with padj < 0.05, top and bottom 25 genes by fold change, minimum counts)
-# - Create volcano plots with highlighted genes, others with metadata overlaid (e.g. Oct4 targets, Oct4 motif, etc.)
-
-# 4. Combine sce objects, just to make plotting easier later
-# Read and combine sce files from each dataset (JJF002, JJF003, JJF004), "combined_sce"
-
-# 5. Overview plots of dataset metrics (e.g. UMIs/cell)
-# - Unfiltered sce: Cell Counts by Droplet Type and Dataset  TODO solve error
-# - Filtered sce, my samples: Cell Counts distribution
-# - Filtered sce, my samples: UMIs per Cell, Genes per Cell
-# - Filtered sce, for each dataset: UMIs per Cell, Genes per Cell
-
-# 6. Plot Genes expression
-# Here we plot the expression of genes of interest, e.g. Oct4, Xist, transgene, and the genes from DGE analysis
-# - Violin plots, for each assay type ("counts", "logcounts", "shifted_log"), separately for each dataset
-# - Violin plots, for each assay type ("counts", "logcounts", "shifted_log"), all datasets next to each other (=grouped by dataset_id)
-# - Scatter plots ("counts", "logcounts") for some pairs of interesting genes (e.g. Oct4 x transgene, Xist x Tsix)
-
-# 7. Binning by Oct4 expression
-# Binning by Oct4 expression, for each assay type ("counts", "logcounts", "shifted_log"), by size and by width, separately for each dataset
-# Take each sample and bin by Oct4 expression, not so useful because within every sample there are cells that express Oct4 very high or low
-
-# 8. Plot means from three datasets
-# Here we plot the mean expression of genes of interest, e.g. Oct4, Xist, transgene, and the genes from DGE analysis
-# Either by sample_name, or by the differently calculated Oct4 bins
-# For each assay type ("counts", "logcounts", "shifted_log")
-# One .pdf file for each binning approach and assay type, and each assay type of gene expression (different combinations)
-# - Dot plots of mean values from 3 datasets plus their overall mean
-
-# 9. On unfiltered_sce: binning by Oct4 expression
-# ...
-# 10. On unfiltered_sce: plot means from three datasets
-# ...
-
-# 11. Heatmap
-# Heatmap of gene expression
-# in progress
-
-# Retired
-# 12. Plot library size (=total UMIs/cell) across several sce objects saved as .rds, to see if library size is different between samples (which have different cell volumes)
-# 13. Plot median UMIs per cell across several sce objects (e.g. different reference genomes), to see what effect the reference genome has on the median UMIs per cell
-# 14. in progress: Histograms of gene expression levels (to visualize normalization steps), was too slow at some point
-# 15. Plot gene expression, earlier versions of the plots from script v0.1.0
-# 16. Find markers (alternative to DESeq, working on one replicate)
-
-
 ###################################################################################################################/
 # Define paths ####
 ###################################################################################################################/
@@ -127,16 +22,6 @@ working_directory <- "PATH/TO/WORK_DIRECTORY"
 # define sub directories (will be created if dont exist) 
 data_dir <- "data/"
 output_dir <- "output/"
-
-# settings table to run script over several datasets 
-# contains file paths to fastq files
-path_settings_table <- "/project/agsgpa/Jonathan/datasets/scRNAseq/20231206_JJF002-004_Oct4/data/settings_20240202_JJF002-004_Oct4.xlsx"
-sheet_settings_table <- "file_paths"
-
-
-###################################################################################################################/
-# Define paths If running code on only one dataset ####
-###################################################################################################################/
 
 # # file paths and settings
 # # count matrix output of STARsolo

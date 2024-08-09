@@ -4,11 +4,9 @@ library(egg)
 library(gridExtra)
 library(pheatmap)
 
-
 #Specify working directory
 args <- commandArgs(trailingOnly = TRUE)
 wd <-  args[1]
-
 
 setwd(wd)
 
@@ -24,7 +22,6 @@ sig_TFi <-  read.delim("./input_files/TFiLib_comp.txt")
 mle_TFi <- read.delim("./input_files/TFi_mle_HvN.gene_summary.txt")
 cluster <- read.delim("./input_files/Timecourse_TF_clusters.txt")
 expression <- read.delim("./input_files/CPM_RNA_timecourse.txt")
-level <- c("RE57L", "RE57M", "RE57R", "RE58", "RE61", "RE85", "RE93", "RE95", "RE96", "RE97", "RE127")
 
 #Calculate Zscore of timecourse
 zscore_cpm <- expression %>% 
@@ -119,7 +116,7 @@ heat_fun <- function(a) {
   
 }
 
-lapply(level, heat_fun)
+lapply(c("RE57M", "RE57L", "RE61", "RE85", "RE96"), heat_fun)
 
 #Plot as Boxplots
 #Group by kmeans clusters (distal, proximal and noRE-like)

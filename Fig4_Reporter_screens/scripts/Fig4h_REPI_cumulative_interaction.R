@@ -53,7 +53,7 @@ high_order <- sig_zfc %>%
 cum_df <- sig_zfc %>% 
   left_join(low_order) %>% 
   left_join(high_order) %>% 
-  pivot_longer(c(7:8), names_to = "comp", values_to = "rank") %>% 
+  pivot_longer(c(6:7), names_to = "comp", values_to = "rank") %>% 
   group_by(comp, reporter) %>% 
   arrange(rank) %>% 
   mutate(cumul = cumsum(mean_zfc)) %>% 

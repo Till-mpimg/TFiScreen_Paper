@@ -60,7 +60,7 @@ sig_reps <- zfc %>%
   select(gene = Gene, reporter, fdr, zfc) %>% 
   filter(fdr <= 0.2) %>% 
   unique() %>% 
-  mutate(gene = str_remove(gene, "_p[1-3]"), type = ifelse(zfc <= 0, "act", "rep"), 
+  mutate(gene = str_remove(gene, "_p[1-3]"), type = ifelse(zfc >= 0, "act", "rep"), 
          cluster = ifelse(reporter %in% c("RE57L", "RE57M"), "proximal", 
                           ifelse(reporter %in% c("RE61", "RE85", "RE96"), "distal", "noRE-like"))) %>% 
   ungroup() %>% 

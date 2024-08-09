@@ -4,6 +4,7 @@ library(pheatmap)
 library(egg)
 library(gridExtra)
 library(viridis)
+library(ggrepel)
 
 #Specify working directory
 args <- commandArgs(trailingOnly = TRUE)

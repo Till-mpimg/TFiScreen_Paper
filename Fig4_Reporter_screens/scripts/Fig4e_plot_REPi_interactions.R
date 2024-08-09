@@ -51,7 +51,7 @@ sig_zfc <- mean_zfc %>%
 #Print numbers
 n_sig <- sig_zfc %>% 
   filter(fdr <= 0.2) %>% 
-  mutate(repi_type = ifelse(mean_zfc < 0, "act", "rep")) %>% 
+  mutate(repi_type = ifelse(mean_zfc > 0, "act", "rep")) %>% 
   group_by(type, repi_type) %>% 
   tally()
 n_sig

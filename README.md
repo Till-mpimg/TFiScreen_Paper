@@ -6,7 +6,7 @@ Developmental genes are controlled by an ensemble of cis-acting regulatory eleme
 
 ## Description
 
-This github repository details data and code used to perform computational analyses and data visualization. All required data is either included on the github, stored at GEO (GSE273068-GSE273072) or stored at zenodo (10.5281/zenodo.12821363, 10.5281/zenodo.12821095, 10.5281/zenodo.12822424 and 10.5281/zenodo.13254609). 
+This github repository details data and code used to perform computational analyses and data visualization. All required data is either included on the github, stored at GEO (GSE273068-GSE273072) or stored at zenodo ([10.5281/zenodo.12821363](url), [10.5281/zenodo.12821095](url), [10.5281/zenodo.12822424](url) and [10.5281/zenodo.13254609](url)). 
 The scripts are structured by figures and can be executed from master scripts that combine similar analyses (stored in "master"). All master scripts can be run independently from each other. To succesfully reproduce the analyses, the file tree structure and file names should be kept intact. The utilized versions of any packages are detailed in the individual README of the different sections. 
 
 Fig1_TFi_screens: Contains instructions, code and files to reproduce library design and screen analysis for CRISPRi screens identifying TF regulators of Xist. Plots Fig. 1 and Extended Fig. E1-E4. (Code by Till Schwämmle)

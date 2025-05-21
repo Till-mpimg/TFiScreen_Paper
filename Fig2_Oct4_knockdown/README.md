@@ -1,7 +1,7 @@
 # Fig. 2: OCT4 acts as an Xist activator during differentiation
 
 ## Description
-This folder contains all code necessary to reproduce the analysis for Figure 2 and Extended Figures E5. The master script has to be started from the "./master" directory. The file structure of this github should be kept intact. Any necessary files to run the master script are provided in "./input_files/". Microscope image from RNA-FISH experiments are provided at 10.5281/zenodo.12821363 (not required to reproduce the analysis detailed here).
+This folder contains all code necessary to reproduce the analysis for Figure 2 and Extended Figures E5. The master script has to be started from the "./master" directory. The file structure of this github should be kept intact. Any necessary files to run the master script are provided in "./input_files/". Microscope image from RNA-FISH experiments are provided at [10.5281/zenodo.12821363](https://zenodo.org/records/12821363) (not required to reproduce the analysis detailed here).
 
 
 ## Software dependencies and operating systems

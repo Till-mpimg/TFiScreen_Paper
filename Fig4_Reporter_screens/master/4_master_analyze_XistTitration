@@ -1,0 +1,31 @@
+#!/bin/bash
+# Master script to analyze scRNAseq for chrX allelic expression
+
+dir=$(pwd)
+wd="$(dirname "$dir")"'/'
+script_dir=${wd}scripts'/'
+
+mkdir -p ${wd}data'/'
+mkdir -p ${wd}output_files'/'
+
+#Processes Xist titration scRNAseq data from count tables. Plots Extended Data Figs. E10j-n
+echo -e "prun python3 ${script_dir}FigE10jklmn_XistTitration_prepare_scData.py $wd"
+prun python3 ${script_dir}FigE10jklmn_XistTitration_prepare_scData.py $wd
+
+#Quantifies Xist expression in the XistTitration samples and filters monoallelic Xist+ cells. Plots Figures 6g-h and Extended Data Fig. E10o
+echo -e "Rscript ${script_dir}Fig6ghE10o_XistTitration_generate_filtered_cell_table.R $wd"
+Rscript ${script_dir}Fig6ghE10o_XistTitration_generate_filtered_cell_table.R $wd
+
+#Calculates X-chromosomal allelic ratio of the XistTitration cells. Plots Figure 6i.
+echo -e "Rscript ${script_dir}Fig6i_XistTitration_calc_allelic_ratios.R $wd"
+Rscript ${script_dir}Fig6i_XistTitration_calc_allelic_ratios.R $wd
+
+#Performs dose-response analysis. Plots Figures 6k-o and Extended Data Figs. E10q-u.
+echo -e "Rscript ${script_dir}Fig6klmnoE10qrstu_XistTitration_doseresponse.R $wd"
+Rscript ${script_dir}Fig6klmnoE10qrstu_XistTitration_doseresponse.R $wd
+
+#Performs X-chromosome-wide dose-response analysis separated by replicate and perturbation. Plots Extended Data Figs. E10p.
+echo -e "Rscript ${script_dir}FigE10p_XistTitration_doseresponse_reps.R $wd"
+Rscript ${script_dir}FigE10p_XistTitration_doseresponse_reps.R $wd
+
+

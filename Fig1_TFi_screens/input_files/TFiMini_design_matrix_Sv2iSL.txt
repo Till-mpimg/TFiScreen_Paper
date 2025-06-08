@@ -1,5 +1,0 @@
-Samples	baseline	2iSL
-R1_Selected	1	0
-R1_2iSL	1	1
-R2_Selected	1	0
-R2_2iSL	1	1

@@ -1,5 +1,0 @@
-Samples	baseline	Low
-R1_Negative	1	0
-R1_Low	1	1
-R2_Negative	1	0
-R2_Low	1	1

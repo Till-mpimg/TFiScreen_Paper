@@ -1,0 +1,5 @@
+Samples	baseline	High
+R1_Negative	1	0
+R1_High	1	1
+R2_Negative	1	0
+R2_High	1	1

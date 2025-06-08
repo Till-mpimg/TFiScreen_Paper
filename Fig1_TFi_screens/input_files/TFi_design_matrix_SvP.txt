@@ -1,0 +1,4 @@
+Samples	baseline	Selected
+R1_Selected	1	1
+PlasmidLib	1	0
+R2_Selected	1	1

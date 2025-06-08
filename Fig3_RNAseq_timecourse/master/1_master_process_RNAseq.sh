@@ -5,6 +5,10 @@ dir=$(pwd)
 wd="$(dirname "$dir")"'/'
 script_dir=${wd}scripts'/'
 
+mkdir -p ${wd}data'/'
+mkdir -p ${wd}output_files'/'
+
+
 #Aligns RNA-seq data
 echo -e "${script_dir}RNA_Timecourse_align.sh $wd"
 ${script_dir}RNA_Timecourse_align.sh $wd

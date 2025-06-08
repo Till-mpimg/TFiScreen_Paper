@@ -16,8 +16,9 @@ R scripts can be run using R (v4.2) software ("https://cran.r-project.org/"). Th
 
 
 ## Reproduce analysis
-All master scripts can be run independently from each other. Detailed instructions are listed below.
+Detailed instructions are listed below.
 
-- "1_master_analyze_Oct4_knockdown.sh": Analyzes qPCR data from differentiation experiments. Analyzes qPCR and RNA-FISH data from Oct4 knockdown experiments. Plots Figures 2b-c and Extended Figures E5a-d.
+- "1_master_analyze_Oct4_knockdown.sh": Analyzes qPCR data from differentiation experiments. Analyzes qPCR and RNA-FISH data from Oct4 knockdown experiments. Plots Figures 2b-c and Extended Figures E4a-d.
+- BIGWIG tracks and NARROWPEAK files of OCT4 binding in male ESCs and EpiLCs were generated as described in [github.com/EddaSchulz/XertPaper](https://github.com/EddaSchulz/Xert_paper/tree/main/NGS_alignment) with master script "(x) master_Buecker_Stadler_ChIPseq.sh" and can be retrieved from [10.5281/zenodo.15617118](https://zenodo.org/records/15617118).
 
-All scripts that are used by the master script are stored in "./scripts/". All files that are necessary to run the master scripts that are not detailed above are stored in "./input_files/".
+All scripts that are used by the master script are stored in "./scripts/". All files that are necessary to run the master script are stored in "./input_files/".

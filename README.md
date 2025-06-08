@@ -11,12 +11,12 @@ The scripts are structured by figures and can be executed from master scripts th
 
 Fig1_TFi_screens: Contains instructions, code and files to reproduce library design and screen analysis for CRISPRi screens identifying TF regulators of Xist. Plots Fig. 1 and Extended Fig. E1-E4. (Code by Till Schwämmle)
 
-Fig2_Oct4_knockdown: Contains instructions, code and files to reproduce analysis of Oct4 knockdown experiments. Plots Fig. 2 and Extended Fig. E5. (Code by Till Schwämmle)
+Fig2_Oct4_knockdown: Contains instructions, code and files to reproduce analysis of Oct4 knockdown experiments. Plots Fig. 2 and Extended Fig. E4. (Code by Till Schwämmle)
 
-Fig3_RNAseq_timecourse: Contains instructions, code and files to reproduce analysis of RNA-seq time course experiments. Plots Fig. 3 and Extended Fig. E6. (Code by Till Schwämmle and Aybuge Altay)
+Fig3_RNAseq_timecourse: Contains instructions, code and files to reproduce analysis of RNA-seq time course experiments. Plots Fig. 3 and Extended Fig. E5. (Code by Till Schwämmle and Aybuge Altay)
 
-Fig4_Reporter_screens: Contains instructions, code and files to reproduce analysis of Reporter CRISPR screen experiments. Plots Fig. 4 and Extended Fig. E7-9. (Code by Till Schwämmle)
+Fig4_Reporter_screens: Contains instructions, code and files to reproduce analysis of Reporter CRISPR screen experiments. Plots Fig. 4 and Extended Fig. E6-8. (Code by Till Schwämmle)
 
-Fig5_Xist_activator_KDs: Contains instructions, code and files to reproduce analysis of Xist activator knockdown experiments. Plots Fig. 5 and Extended Fig. E10. (Code by Till Schwämmle)
+Fig5_Xist_activator_KDs: Contains instructions, code and files to reproduce analysis of Xist activator knockdown experiments. Plots Fig. 5 and Extended Fig. E9. (Code by Till Schwämmle)
 
-Fig6_Allelic_scRNAseq: Contains instructions, code and files to reproduce analysis of scRNA-seq experiment, studying the effects of low Xist levels on XCI. Plots Fig. 6 and Extended Fig. E11. (Code by Jonathan J. Froehlich, Mellisa Bothe and Till Schwämmle)
+Fig6_Allelic_scRNAseq: Contains instructions, code and files to reproduce analysis of scRNA-seq experiment, studying the effects of low Xist levels on XCI. Plots Fig. 6 and Extended Fig. E10. (Code by Jonathan J. Froehlich, Mellisa Bothe and Till Schwämmle)

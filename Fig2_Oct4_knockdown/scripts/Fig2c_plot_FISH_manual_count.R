@@ -39,7 +39,7 @@ test_df$pval <- mapply(function(a) {t.test(fish_sum[fish_sum$sgRNA=="sgNT" & fis
 
 #Plot percentage of Xist positive cells
 xist_plot <- fish_sum %>%
-  ggplot(aes(x = factor(Med, levels = c("2i", "-2iL", "EPI", "RA")), y = xist_perc)) +
+  ggplot(aes(x = factor(Med, levels = c("2i", "-2iL", "EPI")), y = xist_perc)) +
   stat_summary(aes(fill = factor(sgRNA, levels = c("sgNT", "sgOct4"))), 
                    geom = "bar", fun = "mean", position = position_dodge(width = 1), width = 0.8) +
   stat_summary(aes(group = factor(sgRNA, levels = c("sgNT", "sgOct4")), y = `2`), 
@@ -52,7 +52,7 @@ xist_plot <- fish_sum %>%
             size = 8/2.8) +
   scale_fill_manual(values = c("#676767", "#F7A71C"), name = "Guide")
 
-fix <- set_panel_size(xist_plot, height = unit(2, "cm"), width = unit(2, "cm"))
+fix <- set_panel_size(xist_plot, height = unit(2, "cm"), width = unit(1.5, "cm"))
 grid.arrange(fix)
 ggsave("./output_files/Fig2c_Oct4_FISH_perc.pdf", fix, dpi = 300,
        useDingbats=FALSE)

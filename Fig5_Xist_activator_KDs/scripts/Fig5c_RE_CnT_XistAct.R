@@ -28,7 +28,7 @@ bam_dir <- "./data/"
 
 setwd(bam_dir)
 temp = list.files(pattern=paste0(".*_dedup.bam$"), full.names = TRUE)
-candidate_re <- "./input_files/re_total.saf"
+candidate_re <- paste0(wd, "/input_files/re_total.saf")
 
 feature_counts <- featureCounts(temp, annot.ext = candidate_re, isPairedEnd = TRUE,
                                 allowMultiOverlap = TRUE)

@@ -103,7 +103,6 @@ temp = list.files(pattern="XX.*bam$")
 feature_counts_up <- featureCounts(temp, annot.ext = saf_up, isPairedEnd = TRUE,
                                    strandSpecific = 2, allowMultiOverlap = TRUE)
 counts_up <- data.frame(feature_counts_up$counts, feature_counts_up$annotation)
-Dear Till Schwämmle,
 
 feature_counts_down <- featureCounts(temp, annot.ext = saf_down, isPairedEnd = TRUE,
                                      strandSpecific = 2, allowMultiOverlap = TRUE)

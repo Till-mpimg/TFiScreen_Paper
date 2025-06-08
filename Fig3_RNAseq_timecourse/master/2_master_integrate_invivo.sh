@@ -5,6 +5,9 @@ dir=$(pwd)
 wd="$(dirname "$dir")"'/'
 script_dir=${wd}scripts'/'
 
+mkdir -p ${wd}data'/'
+mkdir -p ${wd}output_files'/'
+
 
 #Retrieves fastq files from Mohammed 2017
 echo -e "${script_dir}Mohammed_fastq_dump.sh $wd"
@@ -14,7 +17,7 @@ ${script_dir}Mohammed_fastq_dump.sh $wd
 echo -e "${script_dir}Align_Mohammed2017.sh $wd"
 ${script_dir}Align_Mohammed2017.sh $wd
 
-#Combines count tables into count matris
+#Combines count tables into count matrix
 echo -e "${script_dir}Mohammed_generate_count_matrix.sh $wd"
 ${script_dir}Mohammed_generate_count_matrix.sh $wd
 
@@ -30,7 +33,7 @@ prun python3 ${script_dir}Integrate_invivo.py $wd
 echo -e "Rscript ${script_dir}Fig3b_plot_invivo_pca.R $wd"
 Rscript ${script_dir}Fig3b_plot_invivo_pca.R $wd
 
-#Plots the distance matrix for Extended Fig. E6a
-echo -e "Rscript ${script_dir}FigE6a_plot_distance_matrix.R $wd"
-Rscript ${script_dir}FigE6a_plot_distance_matrix.R $wd
+#Plots the distance matrix for Extended Fig. E5a
+echo -e "Rscript ${script_dir}FigE5a_plot_distance_matrix.R $wd"
+Rscript ${script_dir}FigE5a_plot_distance_matrix.R $wd
 

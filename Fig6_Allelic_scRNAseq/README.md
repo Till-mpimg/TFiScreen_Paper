@@ -39,4 +39,5 @@ All master scripts can be run independently from each other. Detailed instructio
 - "4_master_analyze_XistTitration.sh": Analyzes Xist titration scRNA-seq data. Plots Fig. 6g-i, k-o and Extended Fig. E10j-u. "XistTitration_R1_counts.tsv" and "XistTitration_R2_counts.tsv" should be downloaded from [10.5281/zenodo.15617118](https://zenodo.org/records/15617118) and stored in "./input_files/". "CPM_RNA_timecourse.txt" should be downloaded from [10.5281/zenodo.13254609](https://zenodo.org/records/13254609) and stored in "./input_files/". "GENCODE_vM25_plus_Xert_Linx.gtf" should be downloaded from [10.5281/zenodo.12822424](https://zenodo.org/records/12822424) and stored in "./input_files/". "./input_files/XistTitration_counts_chrX.zip" should be unzipped and the contents stored in "./input_files/".
 
 
+
 All scripts that are used by the master scripts are stored in "/./scripts/". All files that are necessary to run the master scripts that are not detailed above are stored in "./input_files/".
